@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react"
 import { StyleSheet, Text, View } from "react-native"
 
-import Card from "./Card"
+import Card from "../design/Card"
+
 import toWeather, { type Weather } from "./toWeather"
 
-const CurrentWeather: React.FC<{
+export const CurrentWeather: React.FC<{
   location: {
     name: string
     latitude: number
@@ -73,8 +74,6 @@ const CurrentWeather: React.FC<{
     </Card>
   )
 }
-
-export default CurrentWeather
 
 const styles = StyleSheet.create({
   current: { alignItems: "center", marginBottom: 24 },

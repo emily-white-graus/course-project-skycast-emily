@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react"
 import { ScrollView, StyleSheet, Text, View } from "react-native"
 
-import Card from "./Card"
+import Card from "../design/Card"
+
 import toWeather, { type Weather } from "./toWeather"
 
-const Forecast: React.FC<{
+export const Forecast: React.FC<{
   location: {
     name: string
     latitude: number
@@ -62,8 +63,6 @@ const Forecast: React.FC<{
     </Card>
   )
 }
-
-export default Forecast
 
 const styles = StyleSheet.create({
   temperatureMax: { fontSize: 18 },
