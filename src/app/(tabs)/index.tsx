@@ -1,6 +1,6 @@
-import { Link } from "expo-router"
-import { StyleSheet, Text, View } from "react-native"
+import { StyleSheet, View } from "react-native"
 
+import Typography from "#design/elements/Typography"
 import { CurrentWeather, Forecast } from "#shared/weather"
 
 const location = { name: "Barcelona", latitude: 41.385063, longitude: 2.173404 }
@@ -9,12 +9,10 @@ const App: React.FC = () => {
   return (
     <>
       <View style={styles.container}>
-        <Text>Weather App</Text>
-
         <CurrentWeather location={location} />
         <Forecast location={location} />
 
-        <Link href="/temp">Go to Temporary</Link>
+        <Typography href="/temp">Go to Temporary</Typography>
       </View>
     </>
   )
