@@ -2,8 +2,11 @@ import { Stack } from "expo-router"
 import { StyleSheet, View } from "react-native"
 
 import Typography from "#design/elements/Typography"
+import { useFavorites } from "#shared/favorites"
 
 const App: React.FC = () => {
+  const [favorites] = useFavorites()
+
   return (
     <>
       <Stack.Screen options={{ title: "Favorites" }} />
@@ -11,9 +14,11 @@ const App: React.FC = () => {
       <View style={styles.container}>
         <Typography variant="title">Favorites</Typography>
 
-        <Typography href="/favorites/one">a</Typography>
-        <Typography href="/favorites/two">b</Typography>
-        <Typography href="/favorites/three">c</Typography>
+        {favorites.map((favorite, index) => (
+          <Typography key={favorite.name} href={`/favorites/${index}`}>
+            {favorite.name}
+          </Typography>
+        ))}
       </View>
     </>
   )

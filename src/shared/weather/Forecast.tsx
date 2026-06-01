@@ -6,13 +6,10 @@ import Typography from "#design/elements/Typography"
 import { spacing } from "#design/foundations"
 
 import toWeather, { type Weather } from "./toWeather"
+import { type WeatherLocation } from "./types"
 
 export const Forecast: React.FC<{
-  location: {
-    name: string
-    latitude: number
-    longitude: number
-  }
+  location: WeatherLocation
 }> = ({ location }) => {
   const [data, setData] = useState<
     Array<{

@@ -13,7 +13,18 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "plugins": ["expo-router", "expo-screen-orientation"],
+    "plugins": [
+      "expo-router",
+      "expo-screen-orientation",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Allow SkyCast to use your location for local weather."
+        }
+      ],
+      "expo-font",
+      "expo-asset"
+    ],
     "experiments": {
       "typedRoutes": true
     },

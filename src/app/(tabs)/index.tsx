@@ -1,16 +1,26 @@
 import { StyleSheet, View } from "react-native"
 
 import Typography from "#design/elements/Typography"
-import { CurrentWeather, Forecast } from "#shared/weather"
-
-const location = { name: "Barcelona", latitude: 41.385063, longitude: 2.173404 }
+import { useSettings } from "#shared/settings"
+import { CurrentWeather, Forecast, useCurrentLocation } from "#shared/weather"
 
 const App: React.FC = () => {
+  const location = useCurrentLocation()
+  const settings = useSettings()
+
   return (
     <>
       <View style={styles.container}>
-        <CurrentWeather location={location} />
-        <Forecast location={location} />
+        <Typography variant="title">{settings.home.name}</Typography>
+
+        {location ? (
+          <>
+            <CurrentWeather location={location} />
+            <Forecast location={location} />
+          </>
+        ) : (
+          <Typography>Loading...</Typography>
+        )}
 
         <Typography href="/temp">Go to Temporary</Typography>
       </View>
