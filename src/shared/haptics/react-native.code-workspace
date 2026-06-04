@@ -1,16 +1,13 @@
 {
   "folders": [
     {
-      "path": "../../../..",
+      "path": "../../../.."
     },
     {
-      "path": "../../../../../course-project1",
+      "path": "../../../../../course-project1"
     },
     {
-      "path": "../../../../../../example-react-native-skycast-main",
-    },
-    {
-      "path": "../../../../../../../Downloads/example-react-native-skycast-ed8d1c77034347711327f948213c19921c3939ad",
-    },
+      "path": "../../../../../teacher-example-react-native-skycast"
+    }
   ],
 }

@@ -29,6 +29,18 @@ const App: React.FC = () => {
               value={settings.home.name}
             />
           </FormGroup>
+
+          <View style={styles.links}>
+            <Typography href="/settings/profile" variant="large">
+              Profile
+            </Typography>
+            <Typography href="./flat-list" variant="large">
+              Flat List
+            </Typography>
+            <Typography href="./section-list" variant="large">
+              Section List
+            </Typography>
+          </View>
         </View>
       </View>
     </>
@@ -47,5 +59,9 @@ const styles = StyleSheet.create({
   form: {
     width: "100%",
     maxWidth: 360,
+  },
+  links: {
+    gap: 16,
+    marginTop: 32,
   },
 })
