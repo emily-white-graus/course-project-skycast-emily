@@ -1,13 +1,13 @@
 {
   "folders": [
     {
-      "path": "../../../.."
+      "path": "../../../..",
     },
     {
-      "path": "../../../../../course-project1"
+      "path": "../../../../../course-project1",
     },
     {
-      "path": "../../../../../teacher-example-react-native-skycast"
-    }
+      "path": "../../../../../teacher-example-react-native-skycast",
+    },
   ],
 }
