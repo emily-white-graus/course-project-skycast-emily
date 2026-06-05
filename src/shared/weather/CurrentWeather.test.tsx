@@ -4,7 +4,7 @@ import { CurrentWeather } from "./CurrentWeather"
 
 describe("Weather > CurrentWeather", () => {
   beforeEach(() => {
-    jest.spyOn(global, "fetch").mockResolvedValue({
+    jest.spyOn(globalThis, "fetch").mockResolvedValue({
       json: async () => ({
         current: {
           weather_code: 0,

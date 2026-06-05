@@ -1,14 +1,18 @@
 import { Stack, useLocalSearchParams } from "expo-router"
+import { useState } from "react"
 import { StyleSheet, View } from "react-native"
 
+import Icon from "#design/elements/Icon"
 import Typography from "#design/elements/Typography"
-import { useFavorites } from "#shared/favorites"
+import { colors } from "#design/foundations"
+import { FavoriteEditForm, useFavorite } from "#features/favorites"
 import { CurrentWeather, Forecast } from "#shared/weather"
 
 const App: React.FC = () => {
   const { id } = useLocalSearchParams<{ id: string }>()
-  const [favorites] = useFavorites()
-  const location = favorites[Number(id)]
+  const [editing, setEditing] = useState(false)
+  const [refreshKey, setRefreshKey] = useState(0)
+  const location = useFavorite(id, refreshKey)
 
   return (
     <>
@@ -19,6 +23,21 @@ const App: React.FC = () => {
           <>
             <CurrentWeather location={location} />
             <Forecast location={location} />
+
+            <Icon
+              color={colors.background}
+              name="save"
+              onPress={() => setEditing(true)}
+              size={28}
+              style={styles.fab}
+            />
+
+            <FavoriteEditForm
+              favoriteId={id}
+              visible={editing}
+              onClose={() => setEditing(false)}
+              onSave={() => setRefreshKey((key) => key + 1)}
+            />
           </>
         ) : (
           <Typography>Favorite not found</Typography>
@@ -36,5 +55,13 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+  },
+  fab: {
+    position: "absolute",
+    right: 16,
+    bottom: 16,
+    padding: 16,
+    borderRadius: 32,
+    backgroundColor: colors.brand,
   },
 })

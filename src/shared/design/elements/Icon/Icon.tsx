@@ -2,8 +2,11 @@ import FontAwesome from "@expo/vector-icons/FontAwesome"
 import { StyleSheet } from "react-native"
 
 const icons = {
+  add: "plus",
+  close: "close",
   home: "home",
   favorites: "star",
+  save: "save",
   settings: "gear",
 } as const
 
